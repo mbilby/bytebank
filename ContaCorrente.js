@@ -26,9 +26,10 @@ export class Contacorrente {
   }
 
   sacar(valor) {
+    const taxa = 1.1 * valor
     if (this._saldo >= valor) {
       this._saldo -= valor
-      return valor
+      return valor - taxa
     } else {
       console.log('Você não tem saldo suficiente')
     }
