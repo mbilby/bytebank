@@ -1,13 +1,24 @@
-import {Cliente} from "./Cliente.js"
+//import {Cliente} from "./Cliente.js"
 import { Conta } from "./Conta.js";
 
-export class Contacorrente extends Conta {
+export class ContaCorrente extends Conta {
   
   static numeroContas = 0;
 
-  constructor(cliente, agencia) {
-    super(0, cliente, agencia)
-    Contacorrente.numeroContas += 1
+  constructor(saldoInicial, cliente, agencia) {
+      super(saldoInicial , cliente, agencia);
+
+      ContaCorrente.numeroContas += 1;
+  
+    
+  }
+  // Sobrescrevendo o comportamento de SACAR
+
+  sacar(valor) {
+    
+    let taxa = 1.1
+    return this._sacar(valor, taxa)
   
   }
+  
 }

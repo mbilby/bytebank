@@ -1,9 +1,14 @@
+//Classe Abstrata
 export class Conta {
 
   constructor(saldoInicial, cliente, agencia) {
+    if (this.constructor == Conta) {
+      throw new Error("Você não deveria instaciar um objeto do tipo conta diretamente")
+    }
     this._saldo = saldoInicial;
     this._cliente = cliente;
     this._agencia = agencia
+    
   }
 
   set cliente(novoValor) {
@@ -22,11 +27,13 @@ export class Conta {
   }
 
   sacar(valor) {
-    let taxa = 1
 
+  }
+
+  _sacar(valor, taxa) {
     const valorSacado = taxa * valor
     if (this._saldo >= valor) {
-      this._saldo -= valor
+      this._saldo -= valorSacado
       return valorSacado
     } else {
       console.log('Você não tem saldo suficiente')
