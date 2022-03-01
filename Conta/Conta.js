@@ -3,27 +3,27 @@ export class Conta {
 
   constructor(saldoInicial, cliente, agencia) {
     if (this.constructor == Conta) {
-      throw new Error("Você não deveria instaciar um objeto do tipo conta diretamente")
+      throw new Error("Você não deveria instaciar um objeto do tipo conta diretamente");
     }
     this._saldo = saldoInicial;
     this._cliente = cliente;
-    this._agencia = agencia
+    this._agencia = agencia;
     
   }
 
   set cliente(novoValor) {
     if (novoValor instanceof Cliente)
-      this._cliente = novoValor
+      this._cliente = novoValor;
   }
 
   get cliente(){
-    return this._cliente
+    return this._cliente;
   }
 
   // #saldo = 0 https://github.com/tc39/proposal-class-fields#private-fields
 
   get saldo() {
-    return this._saldo
+    return this._saldo;
   }
 
   sacar(valor) {
@@ -31,10 +31,10 @@ export class Conta {
   }
 
   _sacar(valor, taxa) {
-    const valorSacado = taxa * valor
+    const valorSacado = taxa * valor;
     if (this._saldo >= valor) {
       this._saldo -= valorSacado
-      return valorSacado
+      return valorSacado;
     } else {
       console.log('Você não tem saldo suficiente')
     }
@@ -43,7 +43,7 @@ export class Conta {
 
   depositar(valor) {
     if (valor > 0) {
-      this._saldo += valor
+      this._saldo += valor;
     }
   }
 
